@@ -15,6 +15,13 @@ const DEFAULT_PLANNING_INTERVAL = 60000; // 1 minute
  */
 export const AUTONOMOUS_SERVICE = "autonomous_loop";
 
+// Export plugin registration function - THIS IS ESSENTIAL FOR ELIZA TO RECOGNIZE THE PLUGIN
+export default {
+  name: "@elizaos/plugin-autonomous",
+  version: "1.0.0",
+  init: initAutonomousPlugin
+};
+
 /**
  * The autonomous plugin offers continuous operation capabilities to ElizaOS agents
  * by implementing a background event loop and planning functionality.
@@ -172,6 +179,4 @@ export async function initAutonomousPlugin(runtime: IAgentRuntime): Promise<void
       }
     });
   }
-}
-
-export default autonomousPlugin; 
+} 
